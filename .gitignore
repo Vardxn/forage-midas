@@ -33,3 +33,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# OS cruft
+.DS_Store
+
+# Large SDK archives
+google-cloud-sdk/
+google-cloud-cli-*.tar.gz
+source ~*/
