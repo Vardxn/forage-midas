@@ -43,6 +43,7 @@ jobs:
         run: |
           deployment_url=$(vercel deploy --prebuilt --prod)
           echo "Deployed to: ${deployment_url}"
+          echo "Deployed to: ${deployment_url}" >> "$GITHUB_STEP_SUMMARY"
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
