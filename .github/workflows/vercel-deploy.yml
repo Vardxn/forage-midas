@@ -40,7 +40,9 @@ jobs:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
       - name: Deploy to Vercel (production)
-        run: vercel deploy --prebuilt --prod
+        run: |
+          deployment_url=$(vercel deploy --prebuilt --prod)
+          echo "Deployed to: ${deployment_url}"
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
