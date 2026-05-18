@@ -41,7 +41,12 @@ jobs:
 
       - name: Deploy to Vercel (production)
         run: |
+          set -euo pipefail
           deployment_url=$(vercel deploy --prebuilt --prod)
+          if [ -z "${deployment_url}" ]; then
+            echo "Vercel deployment did not return a deployment URL."
+            exit 1
+          fi
           echo "Deployed to: ${deployment_url}"
           echo "Deployed to: ${deployment_url}" >> "$GITHUB_STEP_SUMMARY"
         env:
